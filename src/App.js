@@ -44,10 +44,8 @@ function App() {
             <Navbar title="ReactApp" contactUsText="Contact Us" aboutText="About ReactApp" modeText={modeText} changeMode={changeMode} mode={mode}/>
             <Alert alert={alertText}/>
             <Routes>
+                <Route path="/" element={<TextForm toggleAlert={toggleAlert} heading="Enter Text Here To Analyze" mode={mode} />} />
                 <Route path="/about" element={<AboutUs mode={mode} />} />
-                <Route path="/" element={<TextForm toggleAlert={toggleAlert} heading="Enter Text Here To Analyze" />} />
-            </Routes>
-            <Routes>
                 <Route path="/contact" element={<ContactUs mode={mode} />} />
             </Routes>
         </Router>

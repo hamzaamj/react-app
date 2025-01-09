@@ -49,16 +49,16 @@ export default function TextForm(props) {
                               id="exampleFormControlTextarea1" rows="8">
                     </textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpperCaseClicked}>Convert To UpperCase</button>
-                <button className="btn btn-primary mx-1" onClick={handleLowerCaseClicked}>Convert To LowerCase</button>
-                <button className="btn btn-primary mx-1" onClick={handleReverseClicked}>Reverse Text</button>
-                <button className="btn btn-primary mx-1" onClick={handleFindEmailsClicked}>Find Emails</button>
-                <button className="btn btn-danger mx-1" onClick={handleClearClicked}>Clear Text</button>
+                <button disabled={textAreaText.trim().length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpperCaseClicked}>Convert To UpperCase</button>
+                <button disabled={textAreaText.trim().length === 0} className="btn btn-primary mx-1 my-1" onClick={handleLowerCaseClicked}>Convert To LowerCase</button>
+                <button disabled={textAreaText.trim().length === 0} className="btn btn-primary mx-1 my-1" onClick={handleReverseClicked}>Reverse Text</button>
+                <button disabled={textAreaText.trim().length === 0} className="btn btn-primary mx-1 my-1" onClick={handleFindEmailsClicked}>Find Emails</button>
+                <button disabled={textAreaText.trim().length === 0} className="btn btn-danger mx-1 my-1" onClick={handleClearClicked}>Clear Text</button>
             </div>
             <div className="container my-3" style={{color: textColor}}>
                 <h3>Your Text Summary</h3>
                 <p>{wordCount} words and {charCount} characters</p>
-                <p>{0.008 * textAreaText.split(" ").length} Minutes read</p>
+                <p>{textAreaText.trim().length === 0 ? 0 : 0.008 * textAreaText.split(" ").length} Minutes read</p>
                 <h3>Emails</h3>
                 <ul>
                     {emails.length > 0 ? emails.map((email, index) => (
